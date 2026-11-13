@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff3f8">
+  <title>Sweet Bloom — รีวิวจากใจ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar wrap">
+    <a class="brand" href="#home"><span class="brand-mark">♡</span><span>Sweet Bloom<small>little moments, lots of love</small></span></a>
+    <button class="button button-soft" id="admin-open">หลังบ้าน</button>
+  </header>
+  <main class="wrap">
+    <section class="hero card" id="home">
+      <div class="cover" id="cover"><div class="cover-shine"></div></div>
+      <div class="hero-body">
+        <div class="avatar-frame"><img id="profile" alt="รูปโปรไฟล์ร้าน"></div>
+        <div class="hero-copy"><span class="kicker">♡ ยินดีต้อนรับ ♡</span><h1 id="shop-name">Sweet Bloom</h1>
+          <span class="status" id="shop-status">เปิดร้านแล้ว</span><p id="shop-message">พื้นที่เล็ก ๆ สำหรับความสุขและเรื่องราวดี ๆ</p>
+          <div class="actions"><button class="button" id="shop-toggle">เปิดร้าน</button><a class="button button-soft" href="#reviews">อ่านรีวิว</a></div>
+        </div>
+      </div>
+    </section>
+    <section class="card music section">
+      <div class="section-heading"><div><span class="kicker">a little melody</span><h2>เพลงในร้าน</h2></div><button class="button" id="music-play">เล่นเพลง</button></div>
+      <div class="music-row"><div class="record">♫</div><div class="music-info"><strong id="music-title">เลือกเพลงโปรดของคุณ</strong><input id="music-url" placeholder="วางลิงก์ YouTube ที่นี่" aria-label="ลิงก์ YouTube"></div></div>
+      <div id="player-wrap" class="player hidden"><iframe id="player" title="เพลงจาก YouTube" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+    </section>
+    <section class="card section"><div class="section-heading"><div><span class="kicker">say hello</span><h2>ช่องทางติดต่อ</h2></div></div><div id="contacts" class="contacts"></div></section>
+    <section class="card section" id="reviews"><div class="section-heading"><div><span class="kicker">kind words</span><h2>รีวิวจากลูกค้า</h2></div></div>
+      <form id="review-form" class="review-form"><input id="review-name" placeholder="ชื่อของคุณ" maxlength="60" required><textarea id="review-text" placeholder="เขียนรีวิวของคุณ..." maxlength="1000" required></textarea><label class="upload-label">แนบรูป (ไม่บังคับ)<input id="review-image" type="file" accept="image/*"></label><button class="button" type="submit">ส่งรีวิว ♡</button></form>
+      <div id="reviews-list" class="reviews-grid"></div>
+    </section>
+  </main>
+  <footer class="wrap footer">Made with love <span>♡</span></footer>
+
+  <dialog id="admin-dialog"><button class="dialog-close" id="admin-close" aria-label="ปิด">×</button>
+    <div id="setup-view"><span class="kicker">your lovely shop</span><h2>ตั้งรหัสผ่านหลังบ้าน</h2><p class="hint">ตั้งได้ครั้งเดียวในเบราว์เซอร์นี้ เก็บรหัสผ่านไว้ให้ดีนะคะ</p><form id="setup-form" class="admin-form"><input id="password-one" type="password" placeholder="รหัสผ่าน (อย่างน้อย 8 ตัว)" required minlength="8"><input id="password-two" type="password" placeholder="ยืนยันรหัสผ่าน" required><button class="button">ตั้งรหัสผ่าน</button></form></div>
+    <div id="login-view" class="hidden"><span class="kicker">welcome back</span><h2>เข้าสู่หลังบ้าน</h2><form id="login-form" class="admin-form"><input id="password-login" type="password" placeholder="รหัสผ่าน" required><button class="button">เข้าสู่ระบบ</button></form></div>
+    <div id="panel-view" class="hidden"><span class="kicker">shop settings</span><h2>ตกแต่งร้านของคุณ</h2><form id="settings-form" class="admin-form">
+      <label>ชื่อร้าน<input id="edit-name" maxlength="80"></label><label>ข้อความสถานะ<input id="edit-message" maxlength="180"></label><label class="check-row"><input id="edit-open" type="checkbox"> ร้านเปิดอยู่</label>
+      <label>รูปโปรไฟล์<input id="edit-profile" type="file" accept="image/*"></label><label>รูปปกหลัง<input id="edit-cover" type="file" accept="image/*"></label><label>ลิงก์ YouTube<input id="edit-music" placeholder="https://youtu.be/..."></label>
+      <div><div class="contact-title"><strong>ช่องทางติดต่อ</strong><button class="button button-soft small" type="button" id="add-contact">เพิ่มช่องทาง</button></div><div id="contact-editor"></div></div><button class="button">บันทึกการเปลี่ยนแปลง</button>
+    </form><p class="hint security-note">หมายเหตุ: รุ่นนี้เป็นตัวอย่างแบบ static ข้อมูลและการล็อกอินเก็บในเบราว์เซอร์เครื่องนี้เท่านั้น ไม่เหมาะกับข้อมูลจริงหรือการดูแลร้านหลายคน</p></div>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+</html>
